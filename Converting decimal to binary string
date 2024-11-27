@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string> #include <cmath>
+using namespace std;
+string DecimalToBinaryString(int decimalNumber) {
+    string binaryString = "";
+    if (decimalNumber > 0) {
+        div_t dv{};
+        dv.quot = decimalNumber;
+        do {
+            dv = div(dv.quot, 2);
+            binaryString = to_string(dv.rem) + binaryString;         } while (dv.quot);     }
+    return binaryString.empty() ? "0" : binaryString; }
+int main() {
+    cout << "Decimal to Binary Converter\n";
+    int decNum;
+    cout << "Input decimal number -> ";
+    cin >> decNum;
+    cout << "Binary representation: " << DecimalToBinaryString(decNum) << endl;
+    return 0; }
