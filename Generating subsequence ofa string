@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <string> #include <cmath>
+using namespace std;
+vector<string> GenerateSubsequences(string str) {
+    vector<string> subsequences;
+    int n = str.size();
+    int total = pow(2, n);
+    for (int i = 1; i < total; ++i) {
+        string subsequence = "";
+        for (int j = 0; j < n; ++j) {
+            if (i & (1 << j)) {
+                subsequence += str[j];             }         }
+        subsequences.push_back(subsequence);     }
+    return subsequences; }
+int main() {
+    cout << "Subsequence Generator\n";
+    string str;
+    cout << "Input string -> ";
+    cin >> str;
+    auto subsequences = GenerateSubsequences(str);
+    for (const auto& sub : subsequences) {
+        cout << sub << endl;     }
+    return 0; }
