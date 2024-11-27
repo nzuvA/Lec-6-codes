@@ -1,0 +1,15 @@
+#include <algorithm>
+#include <string> #include <iostream>
+using namespace std;
+bool IsPalindrome(string str) {
+    transform(str.begin(), str.end(), str.begin(), ::toupper);     str.erase(remove(str.begin(), str.end(), ' '), str.end());
+    return equal(str.begin(), str.begin() + str.size() / 2, str.rbegin()); }
+int main() {
+    cout << "Palindrome Checker\n";
+    string str;
+    cout << "Input string -> ";
+    getline(cin, str);
+    if (IsPalindrome(str)) {
+        cout << "The string is a palindrome.\n";     } else {
+        cout << "The string is NOT a palindrome.\n";     }
+    return 0; }
