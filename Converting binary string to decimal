@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string> #include <cmath>
+using namespace std;
+int BinaryStringToDecimal(string binaryString) {
+    int decimal = 0, power = 0;
+    for (auto it = binaryString.rbegin(); it != binaryString.rend(); ++it, ++power) {
+        if (*it == '1') {
+            decimal += pow(2, power);         }     }
+    return decimal; }
+int main() {
+    cout << "Binary to Decimal Converter\n";
+    string binaryString;
+    cout << "Input binary string -> ";
+    cin >> binaryString;
+    cout << "Decimal representation: " << BinaryStringToDecimal(binaryString) << endl;
+    return 0; }
